@@ -10,9 +10,9 @@ El enfoque adoptado en este proyecto sigue una arquitectura orientada a objetos,
 
 ## 2. Estructura del Proyecto y Descomposición del Sistema
 
-El sistema está organizado siguiendo una arquitectura en capas y un enfoque modular que permite la separación de responsabilidades. A continuación, se describen las capas y los paquetes principales:
+El sistema está organizado siguiendo una arquitectura en capas y un enfoque modular que permite la separación de responsabilidades. Se describen las capas y los paquetes principales:
 
-### 2.1 Arquitectura en Capas
+### 2.1 Arquitectura en Capa
 
 - **Capa de Presentación (`ui/`)**: Contiene la interfaz de usuario por consola. Se encarga de interactuar con el usuario y capturar sus entradas.
 - **Capa de Aplicación (`application/`)**: Contiene los servicios que coordinan las operaciones del sistema, como `OrderService` y `MenuService`.
