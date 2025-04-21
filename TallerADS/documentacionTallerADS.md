@@ -1,5 +1,5 @@
 # Sistema de Gestión de Pedidos - Taller de Diseño y Arquitectura de Software
-##Santiago Hernandez, Jose Manuel Guerrero
+## Santiago Hernandez, Jose Manuel Guerrero
 ## 1. Introducción
 
 Taller de Diseño y Arquitectura de Software, cuyo objetivo es aplicar principios de diseño como SOLID, técnicas de descomposición en componentes y patrones arquitectónicos, para construir una solución organizada y extensible. 
