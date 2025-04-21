@@ -231,3 +231,130 @@ Total: $35,000
 
 Estas funcionalidades permiten simular la operación básica de un restaurante y probar la interacción entre todos los componentes del sistema.
 
+
+## 6. Justificación de Decisiones Técnicas
+
+Durante el diseño e implementación del sistema, se tomaron decisiones estratégicas basadas en principios sólidos de ingeniería de software y buenas prácticas.
+
+### 6.1 Elección de Arquitectura en Capas
+
+Se optó por una arquitectura en capas para separar claramente la lógica de presentación, la lógica de aplicación y la lógica de dominio. Esto permite:
+
+- Mantenimiento más sencillo.
+- Posibilidad de reusar servicios desde otros entornos (por ejemplo, una futura interfaz web).
+- Pruebas unitarias más efectivas al aislar componentes.
+
+---
+
+### 6.2 Uso de Decoradores para Composición de Platos
+
+En lugar de crear una clase por cada combinación posible de plato con extras, se usó el patrón **Decorator**, lo que permitió:
+
+- Agregar dinámicamente funcionalidades como "extra queso" o "empaque para llevar".
+- Evitar la explosión de subclases.
+- Mantener abierto el sistema para extensión, pero cerrado para modificación (OCP).
+
+---
+
+### 6.3 Control de Estado con Patrón State
+
+El patrón **State** permite encapsular el comportamiento asociado a cada estado de un pedido. Esto:
+
+- Elimina múltiples condicionales del tipo `if estado == "X"`.
+- Centraliza la lógica de transición entre estados en sus respectivas clases.
+- Facilita la incorporación de nuevos estados en el futuro sin modificar la clase `Order`.
+
+---
+
+### 6.4 Desacoplamiento con el Patrón Observer
+
+La lógica de notificación al cliente se desacopló usando **Observer**, permitiendo:
+
+- Agregar múltiples observadores si se desea notificar a más de un actor.
+- Mantener la clase `Order` libre de responsabilidades específicas de notificación.
+- Preparar el sistema para extensiones como envío de correos, logs, o mensajes externos.
+
+---
+
+### 6.5 Aplicación de Principios SOLID
+
+- **SRP**: Cada clase tiene una única responsabilidad bien definida.
+- **OCP**: Nuevas funcionalidades se agregan mediante extensiones (por ejemplo, nuevos decoradores).
+- **LSP**: Los estados concretos pueden reemplazar a la interfaz `EstadoPedido` sin romper el sistema.
+- **ISP**: Interfaces como `MenuItem` y `Observador` son pequeñas y específicas.
+- **DIP**: `OrderService` y `MenuService` dependen de abstracciones del dominio, no de implementaciones directas.
+
+Estas decisiones técnicas aseguran un sistema flexible, mantenible, escalable y fácil de entender por otros desarrolladores.
+
+
+## 7. Instrucciones para Ejecutar el Sistema
+
+A continuación, se describen los pasos necesarios para ejecutar correctamente el sistema en un entorno local con Python.
+
+### 7.1 Requisitos
+
+- Python 3.10 o superior.
+- Sistema operativo: Linux, macOS o Windows.
+- Editor de código recomendado: Visual Studio Code.
+
+---
+
+### 7.2 Estructura del Proyecto
+
+Asegúrate de que tu proyecto esté ubicado en una ruta similar a:
+
+```
+~/Documentos/ADS/
+```
+
+Y que contenga la siguiente estructura:
+
+```
+ADS/
+├── main.py
+├── com/
+    └── restaurant/
+        ├── ui/
+        ├── application/
+        └── domain/
+            └── model/
+```
+
+---
+
+### 7.3 Ejecutar el Sistema
+
+1. Abre una terminal y navega al directorio raíz del proyecto:
+
+```bash
+cd ~/Documentos/ADS
+```
+
+2. Ejecuta el sistema con:
+
+```bash
+python3 main.py
+```
+
+---
+
+### 7.4 Uso del Programa
+
+Una vez ejecutado, verás el menú principal del sistema:
+
+```
+=== SISTEMA DE PEDIDOS - RESTAURANTE ===
+1. Ver menú
+2. Agregar plato al menú
+3. Crear nuevo pedido
+4. Agregar plato a un pedido
+5. Avanzar estado de un pedido
+6. Ver detalle de un pedido
+7. Salir
+```
+
+Selecciona una opción numérica para interactuar con el sistema. Cada operación será guiada paso a paso desde la consola.
+
+---
+
+Este diseño permite una interacción sencilla, orientada a línea de comandos, y es ideal para comprobar el flujo de control del sistema, probar sus patrones de diseño y verificar su correcta descomposición.
