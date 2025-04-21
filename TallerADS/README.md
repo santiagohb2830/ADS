@@ -123,7 +123,7 @@ El sistema modela un flujo de pedidos para un restaurante, donde el cliente sele
                     +------------------------+                   |
                     |   ClienteObservador    |--------------------+
                     +------------------------+
-```
+
 
 Este diagrama refleja el uso de los patrones Decorator, State y Observer, y cómo se integran para representar el dominio del problema de forma modular, escalable y extensible.
 
