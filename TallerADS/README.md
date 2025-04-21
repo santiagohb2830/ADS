@@ -179,3 +179,55 @@ Este sistema implementa tres patrones de diseño fundamentales, uno de cada tipo
 
 Estos patrones ayudan a mantener el sistema escalable, flexible y organizado, en línea con los principios SOLID y la arquitectura orientada a objetos.
 
+
+## 5. Funcionalidades del Sistema
+
+El sistema permite al usuario interactuar desde una consola mediante un menú textual, ofreciendo una experiencia completa de gestión de pedidos en un restaurante.
+
+### 5.1 Menú Principal del Sistema
+
+```
+=== SISTEMA DE PEDIDOS - RESTAURANTE ===
+1. Ver menú
+2. Agregar plato al menú
+3. Crear nuevo pedido
+4. Agregar plato a un pedido
+5. Avanzar estado de un pedido
+6. Ver detalle de un pedido
+7. Salir
+```
+
+---
+
+### 5.2 Funciones disponibles
+
+- **Ver Menú**: Muestra todos los platos actualmente registrados en el sistema.
+- **Agregar Plato al Menú**: Permite registrar un nuevo `PlatoBase` indicando nombre, precio y descripción.
+- **Crear Pedido**: Solicita los datos del cliente y genera un nuevo pedido con ID único.
+- **Agregar Ítem a un Pedido**: Permite seleccionar un pedido existente y añadir un plato del menú.
+- **Avanzar Estado del Pedido**: Cambia el estado del pedido entre: Recibido → En preparación → Listo → Entregado.
+- **Ver Detalle del Pedido**: Muestra la información completa del pedido: cliente, ítems, precios, estado y total.
+- **Notificaciones**: Al cambiar el estado, el sistema notifica automáticamente al cliente gracias al patrón Observer.
+
+---
+
+### 5.3 Ejemplo de ejecución
+
+```
+Nombre del cliente: Valentina
+Dirección (opcional): Cra 12 #34-56
+Teléfono (opcional): 3001234567
+Pedido creado con ID: 1
+
+[Notificación para Valentina] El pedido #1 cambió a estado: En preparación
+
+Pedido #1 para Valentina - Estado: En preparación
+  - Pizza Margarita | $27,000 | Pizza con tomate, mozzarella y albahaca + extra queso (Empaque para llevar)
+  - Limonada | $8,000 | Bebida natural con hielo
+Total: $35,000
+```
+
+---
+
+Estas funcionalidades permiten simular la operación básica de un restaurante y probar la interacción entre todos los componentes del sistema.
+
