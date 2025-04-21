@@ -63,8 +63,6 @@ El modelo de dominio representa las entidades centrales del sistema y cómo inte
 
 ### 3.2 Diagrama de Clases (UML)
 
-El siguiente es un resumen textual del UML que puede representarse gráficamente con herramientas como draw.io, PlantUML o StarUML:
-
 ```
 +----------------+           +-------------------+
 |   MenuItem     |<--------- |   PlatoBase       |
@@ -99,4 +97,56 @@ El siguiente es un resumen textual del UML que puede representarse gráficamente
 ```
 
 Este modelo permite una gran flexibilidad, extensibilidad y separación de responsabilidades dentro del sistema.
+
+
+## 4. Patrones de Diseño Aplicados
+
+Este sistema implementa tres patrones de diseño fundamentales, uno de cada tipo (creacional, estructural y de comportamiento), tal como exige el taller.
+
+### 4.1 Patrón Estructural: Decorator
+
+**Propósito:** Permite agregar responsabilidades adicionales a un objeto de forma dinámica, sin modificar su estructura original.
+
+**Implementación:**
+- `MenuItem`: Interfaz base.
+- `PlatoBase`: Implementación básica de un plato.
+- `ExtraQueso`, `EmpaqueParaLlevar`: Decoradores que modifican la descripción y el precio del plato original.
+
+**Ventajas:**
+- Sigue el principio abierto/cerrado (OCP).
+- Permite agregar múltiples combinaciones de extras sin herencia múltiple.
+
+---
+
+### 4.2 Patrón de Comportamiento: State
+
+**Propósito:** Permite que un objeto altere su comportamiento cuando cambia su estado interno.
+
+**Implementación:**
+- `EstadoPedido`: Interfaz del estado.
+- `EstadoRecibido`, `EstadoEnPreparacion`, `EstadoListo`, `EstadoEntregado`: Estados concretos que implementan la transición entre fases del pedido.
+- La clase `Order` mantiene una referencia al estado actual y delega el cambio de comportamiento.
+
+**Ventajas:**
+- Separa la lógica específica de cada estado.
+- El código es más fácil de extender y mantener.
+
+---
+
+### 4.3 Patrón de Comportamiento: Observer
+
+**Propósito:** Permite que múltiples objetos escuchen y reaccionen a los cambios en otro objeto sin acoplarse fuertemente.
+
+**Implementación:**
+- `Observador`: Interfaz para observadores.
+- `ClienteObservador`: Implementación que recibe notificaciones.
+- `Order`: Actúa como sujeto. Al cambiar de estado, notifica a sus observadores registrados.
+
+**Ventajas:**
+- Desacopla el código del pedido y del observador.
+- Permite múltiples suscriptores si se desea escalar la solución.
+
+---
+
+Estos patrones ayudan a mantener el sistema escalable, flexible y organizado, en línea con los principios SOLID y la arquitectura orientada a objetos.
 
