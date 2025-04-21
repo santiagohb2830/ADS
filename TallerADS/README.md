@@ -47,3 +47,56 @@ com.restaurant/
 
 Esta organización permite mantener una alta cohesión dentro de los módulos y un bajo acoplamiento entre ellos, cumpliendo con los principios de diseño orientado a objetos y SOLID.
 
+## 3. Modelo de Dominio y Diagrama UML
+
+El modelo de dominio representa las entidades centrales del sistema y cómo interactúan entre sí. Este sistema sigue un enfoque orientado a objetos y modela conceptos reales como platos, pedidos, clientes y estados.
+
+### 3.1 Entidades Principales
+
+- **Customer**: Representa al cliente que realiza un pedido.
+- **MenuItem**: Interfaz base para todos los ítems del menú.
+- **PlatoBase**: Implementación concreta de un ítem de menú básico.
+- **Decoradores (ExtraQueso, EmpaqueParaLlevar)**: Permiten modificar dinámicamente un `MenuItem` sin alterar su implementación original.
+- **Order**: Contiene los ítems seleccionados por el cliente y el estado actual del pedido.
+- **EstadoPedido (State)**: Representa los distintos estados de un pedido (Recibido, EnPreparación, Listo, Entregado).
+- **Observador (Observer)**: Permite notificar al cliente cuando su pedido cambia de estado.
+
+### 3.2 Diagrama de Clases (UML)
+
+El siguiente es un resumen textual del UML que puede representarse gráficamente con herramientas como draw.io, PlantUML o StarUML:
+
+```
++----------------+           +-------------------+
+|   MenuItem     |<--------- |   PlatoBase       |
++----------------+           +-------------------+
+| +get_nombre()  |           | -nombre           |
+| +get_precio()  |           | -precio           |
+| +get_descripcion()|        | -descripcion      |
++----------------+           +-------------------+
+        ^
+        |
+        +------------------------------+
+        |         Decoradores          |
+        +------------------------------+
+        | ExtraQueso, EmpaqueParaLlevar|
+        +------------------------------+
+
++----------------+       +------------------+       +------------------+
+|    Customer    |       |      Order       |       | EstadoPedido     |
++----------------+       +------------------+       +------------------+
+| -id            |       | -id              |       | +avanzar_estado()|
+| -nombre        |       | -cliente         |       | +nombre()        |
+| -telefono      |       | -items           |       +------------------+
+| -direccion     |       | -estado          |
++----------------+       | -observadores    |
+                         +------------------+
+
+                          ^
+                          |
+          +--------------------------------------+
+          | EstadoRecibido, EnPreparacion, Listo, Entregado |
+          +--------------------------------------------------+
+```
+
+Este modelo permite una gran flexibilidad, extensibilidad y separación de responsabilidades dentro del sistema.
+
