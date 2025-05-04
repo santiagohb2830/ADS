@@ -66,64 +66,6 @@ El sistema modela un flujo de pedidos para un restaurante, donde el cliente sele
 
 ### 3.2 Diagrama de Clases (UML)
 
-                      +----------------+
-                      |   MenuItem     |<-----------------------------+
-                      +----------------+                              |
-                      | +get_nombre()  |                              |
-                      | +get_precio()  |                              |
-                      | +get_desc()    |                              |
-                      +----------------+                              |
-                              ^                                        |
-                              |                                        |
-                   +---------------------+                             |
-                   |     PlatoBase       |                             |
-                   +---------------------+                             |
-                   | -nombre             |                             |
-                   | -precio             |                             |
-                   | -descripcion        |                             |
-                   +---------------------+                             |
-                              ^                                        |
-                              |                                        |
-                   +---------------------------+     +-----------------------------+
-                   |     MenuItemDecorator     |<----|     ExtraQueso              |
-                   +---------------------------+     +-----------------------------+
-                   | -menu_item: MenuItem      |     | +get_precio(), +get_desc()  |
-                   +---------------------------+     +-----------------------------+
-                              ^                              +-----------------------------+
-                              |                              | EmpaqueParaLlevar           |
-                              |                              +-----------------------------+
-                                                             
-                      +------------------+       uses        +------------------+
-                      |     Order        |------------------>|    Customer      |
-                      +------------------+                   +------------------+
-                      | -items: MenuItem[]                   | -id, nombre...   |
-                      | -estado: EstadoPedido                +------------------+
-                      +------------------+
-                              |
-                              | has a
-                              v
-                  +--------------------------+
-                  |     EstadoPedido         |<-----------------------------+
-                  +--------------------------+                              |
-                  | +avanzar_estado()        |                              |
-                  +--------------------------+                              |
-                    ^         ^         ^         ^                         |
-                    |         |         |         |                         |
-     +----------------+ +----------------------+ +----------------+ +--------------------+
-     | EstadoRecibido | | EstadoEnPreparacion  | | EstadoListo    | | EstadoEntregado   |
-     +----------------+ +----------------------+ +----------------+ +--------------------+
-
-                   +-------------------------+
-                   |      Observador         |<------------------+
-                   +-------------------------+                   |
-                   | +actualizar(pedido,msg) |                   |
-                   +-------------------------+                   |
-                             ^                                   |
-                             |                                   |
-                    +------------------------+                   |
-                    |   ClienteObservador    |--------------------+
-                    +------------------------+
-
 
 Este diagrama refleja el uso de los patrones Decorator, State y Observer, y cómo se integran para representar el dominio del problema de forma modular, escalable y extensible.
 
