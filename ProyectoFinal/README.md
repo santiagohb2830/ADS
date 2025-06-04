@@ -120,10 +120,7 @@ Este proyecto se construyó siguiendo el diagrama de clases definido en la fase 
 
 ---
 
-## Autores
 
-- Johan Sebastián Méndez Ibarra  
-- Andrés David Ortiz Forero  
 
 Proyecto desarrollado para el curso Análisis y Diseño de Sistemas (ADS).  
 Pontificia Universidad Javeriana – 2025
