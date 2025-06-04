@@ -1,11 +1,10 @@
-
 # Sistema de Gestión de Emergencias Hospitalarias
 
-Este proyecto es un prototipo funcional desarrollado en Python que simula el flujo básico de un sistema de urgencias hospitalarias. Incluye registro de pacientes, asignación de prioridad médica mediante triaje, carga de resultados de laboratorio y visualización general del estado de cada paciente.
+Este proyecto corresponde a un prototipo funcional desarrollado en Python que simula el flujo básico de un sistema de urgencias hospitalarias. Incluye funcionalidades para el registro de pacientes, asignación de prioridad médica mediante triaje, carga de resultados de laboratorio y visualización general del estado de cada paciente.
 
 ---
 
-## 📂 Estructura del Proyecto
+## Estructura del Proyecto
 
 ```
 hospital-emergencias/
@@ -32,20 +31,22 @@ hospital-emergencias/
 
 ---
 
-## 🧠 ¿Qué hace el sistema?
+## Descripción General del Sistema
 
-- **Registrar pacientes** nuevos, evitando duplicados.
-- **Realizar triaje** con signos vitales y asignar prioridad médica automáticamente.
-- **Ingresar resultados de laboratorio** y activar alertas si son críticos.
-- **Visualizar pacientes** y su historial clínico reciente desde consola.
+El sistema permite:
+
+- Registrar pacientes nuevos evitando duplicados.
+- Realizar triaje con signos vitales y asignar prioridad médica de forma automática.
+- Ingresar resultados de laboratorio y activar alertas si estos son críticos.
+- Visualizar pacientes y su historial clínico reciente a través de una interfaz por consola.
 
 ---
 
-## 🖥️ Cómo ejecutar
+## Instrucciones de Ejecución
 
-1. Asegúrate de tener Python 3 instalado.
-2. Abre una terminal y navega a la carpeta del proyecto.
-3. Ejecuta el archivo principal:
+1. Instalar Python 3.
+2. Abrir una terminal y navegar hasta la carpeta del proyecto.
+3. Ejecutar el archivo principal con el siguiente comando:
 
 ```bash
 python main.py
@@ -53,9 +54,9 @@ python main.py
 
 ---
 
-## ✅ Funcionalidades disponibles
+## Funcionalidades Disponibles
 
-| Opción de Menú | Descripción |
+| Opcion de Menú | Descripción |
 |----------------|-------------|
 | 1. Registrar nuevo paciente | Crea un nuevo registro en el sistema |
 | 2. Realizar triaje | Captura signos vitales y calcula prioridad |
@@ -65,7 +66,7 @@ python main.py
 
 ---
 
-## 💾 Ejemplo de uso
+## Ejemplo de Uso
 
 ### Entrada (vía consola):
 
@@ -100,22 +101,29 @@ ALERTA: Resultado crítico detectado.
 
 ---
 
-## 📚 Tecnologías usadas
+## Tecnologías Utilizadas
 
-- **Python 3**
-- Estructura MVC simplificada
-- Consola como interfaz de usuario
+- Python 3
+- Arquitectura MVC simplificada
+- Interfaz por consola
 - Simulación de base de datos en memoria (`BaseDatos.py`)
 
 ---
 
-## 📌 Notas adicionales
+## Observaciones Adicionales
 
-- Este proyecto es un prototipo. No incluye persistencia en archivos o base de datos real.
-- La lógica del triaje es simplificada, y puede adaptarse a protocolos clínicos reales.
-- La arquitectura está preparada para escalar con una interfaz gráfica en el futuro.
+- El sistema es un prototipo y no implementa persistencia en disco ni acceso a bases de datos reales.
+- La lógica del triaje está simplificada y puede ser adaptada a protocolos clínicos formales.
+- La arquitectura permite futura extensión hacia interfaces gráficas u otros entornos.
+
+Este proyecto se construyó siguiendo el diagrama de clases definido en la fase de diseño del sistema, aplicando una organización modular según el patrón MVC, y está alineado con los requerimientos funcionales y casos de uso previamente documentados.
 
 ---
 
-Proyecto desarrollado para el curso **Análisis y Diseño de Sistemas (ADS)**.  
+## Autores
+
+- Johan Sebastián Méndez Ibarra  
+- Andrés David Ortiz Forero  
+
+Proyecto desarrollado para el curso Análisis y Diseño de Sistemas (ADS).  
 Pontificia Universidad Javeriana – 2025
